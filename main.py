@@ -107,7 +107,9 @@ def load_position():
     except:
         f = open('save.dat', 'wb')
         dump([False], f)
+        cur = [False]
         f.close()
+
     if not cur[0]:
         n = int(input('Size of game_place: '))
         count_mine = int(input('Count of mine: '))
