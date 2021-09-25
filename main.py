@@ -100,9 +100,14 @@ def open_zero(x, y, game_field, show_field):
 
 
 def load_position():
-    f = open('save.dat', 'rb')
-    cur = load(f)
-    f.close()
+    try:
+        f = open('save.dat', 'rb')
+        cur = load(f)
+        f.close()
+    except:
+        f = open('save.dat', 'wb')
+        dump([False], f)
+        f.close()
     if not cur[0]:
         n = int(input('Size of game_place: '))
         count_mine = int(input('Count of mine: '))
